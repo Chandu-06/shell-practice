@@ -1,6 +1,6 @@
 number=$1
 
-if [ $number not: -lt 10 ]
+if [ $number -lt 10 ]
 then 
     echo "$number is lt 10"
 else
