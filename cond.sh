@@ -1,8 +1,8 @@
-number=$1
+number=1
 
-if [ $number -lt 10 ]
+if [ $number -lt 10 ];
 then 
     echo "$number is lt 10"
-else
+else;
     echo "$nummber not lt 10"
 fi
