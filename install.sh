@@ -9,10 +9,11 @@ fi
 
 dnf list install mysql
 
-if [ $? -eq 0 ];
+if [ $? -ne 0 ];
 then 
-    dnf install mysql -y
+    echo "It is not installed.. going to install"
 
+    dnf install mysql -y
     if [ $? -eq 0 ];
     then 
         echo "Installing MySql......Success"
