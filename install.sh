@@ -7,12 +7,29 @@ then
     echo "ERROR:: No root access connot to the root user"
 fi
 
-dnf install mysql -y
+dnf list install mysql
 
 if [ $? -eq 0 ];
 then 
-    echo "Installing MySql......Success"
+    dnf install mysql -y
+
+    if [ $? -eq 0 ];
+    then 
+        echo "Installing MySql......Success"
+    else
+        echo "Installing MySql......Failure"
+        exit 1
+    fi
 else
-    echo "Installing MySql......Failure"
-    exit 1
+    echo "Mysql is already installed"
 fi
+
+# dnf install mysql -y
+
+# if [ $? -eq 0 ];
+# then 
+#     echo "Installing MySql......Success"
+# else
+#     echo "Installing MySql......Failure"
+#     exit 1
+# fi
