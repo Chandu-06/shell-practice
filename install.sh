@@ -42,6 +42,25 @@ then
 else
     echo "nginx is already installed"
 fi
+
+dnf list install python3
+
+if [ $? -ne 0 ];
+then 
+    echo "It is not installed.. going to install"
+
+    dnf install python3 -y
+    if [ $? -eq 0 ];
+    then 
+        echo "Installing python3......Success"
+    else
+        echo "Installing python3......Failure"
+        exit 1
+    fi
+else
+    echo "python3 is already installed"
+fi
+
 # dnf install mysql -y
 
 # if [ $? -eq 0 ];
