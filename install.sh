@@ -61,6 +61,23 @@ else
     echo "python3 is already installed"
 fi
 
+dnf list install apache2
+
+if [ $? -ne 0 ];
+then 
+    echo "It is not installed.. going to install"
+
+    dnf install apache2 -y
+    if [ $? -eq 0 ];
+    then 
+        echo "Installing apache2......Success"
+    else
+        echo "Installing apache2......Failure"
+        exit 1
+    fi
+else
+    echo "apache2 is already installed"
+fi
 # dnf install mysql -y
 
 # if [ $? -eq 0 ];
