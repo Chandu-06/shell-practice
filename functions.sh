@@ -14,9 +14,9 @@ fi
 VALIDATE(){
     if [ $1 -eq 0 ];
     then 
-        echo "Installing MySql......Success"
+        echo "Installing $2......Success"
     else
-        echo "Installing MySql......Failure"
+        echo "Installing $2......Failure"
         exit 1
     fi
 }
@@ -61,6 +61,18 @@ else
     echo "python3 is already installed"
 fi
 
+
+dnf list install httpd
+
+if [ $? -ne 0 ];
+then 
+    echo "It is not installed.. going to install"
+
+    dnf install httpd -y
+    VALIDATE $? "httpd"
+else
+    echo "httpd is already installed"
+fi
 # dnf install mysql -y
 
 # if [ $? -eq 0 ];
